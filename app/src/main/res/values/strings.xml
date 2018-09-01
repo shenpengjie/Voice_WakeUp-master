@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Voice_WakeUp</string>
+    <string name="start">开始录音</string>
+    <string name="stop">停止录音</string>
+    <string name="paly">播放录音</string>
+    <string name="pause_paly">暂停播放</string>
+    <string name="stop_paly">停止播放</string>
+    <string name="ok">播放完毕</string>
+</resources>

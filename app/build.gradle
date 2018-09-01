@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.wakeup.voice.voice_wakeup"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        sourceSets {
+            main {
+                //jni库的调用会到资源文件夹下libs里面找so文件
+                jniLibs.srcDirs = ['libs']
+                assets.srcDirs = ['assets']
+            }
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:24.2.1'
+    implementation 'tech.linjiang:suitlines:1.1.0'
+    implementation 'info.hoang8f:fbutton:1.0.5'
+    implementation 'com.github.lygttpod:SuperTextView:2.1.8'
+    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/Jama.jar')
+    targetCompatibility = '1.7'
+    sourceCompatibility = '1.7'
+    implementation(name: 'tensorflow-android-1.10.0-rc0', ext: 'aar')
+    implementation files('libs/SoundDetector.jar')
+}
